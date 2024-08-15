@@ -41,10 +41,10 @@ public class ReponseServiceImpl implements ResponseService {
 	@Override
 	public BasicRes select(SelectReq req) {
 		// 參數檢查
-		BasicRes checkResult = checkParams(req);
-		if (checkResult != null) {
-			return checkResult;
-		}
+//		BasicRes checkResult = checkParams(req);
+//		if (checkResult != null) {
+//			return checkResult;
+//		}
 		// 檢查同一個人有無重複投票
 		if (responseDao.existsByUserId(req.getUserId())) {
 			return new BasicRes(ResMsg.DUPLICATED_FILL_IN.getCode(), //
@@ -78,18 +78,18 @@ public class ReponseServiceImpl implements ResponseService {
 				ResMsg.ANSWER_IS_REQUIRED.getMessage());
 	}
 
-	private BasicRes checkParams(SelectReq req) {
-		// 檢查員工編號和名字不能空白
-		if (!StringUtils.hasText(req.getUserName())) {
-			return new BasicRes(ResMsg.PARAM_USERNAME_IS_REQUIRED.getCode(), //
-					ResMsg.PARAM_USERNAME_IS_REQUIRED.getMessage());
-		}
-		if (!StringUtils.hasText(req.getUserId())) {
-			return new BasicRes(ResMsg.PARAM_USERID_IS_REQUIRED.getCode(), //
-					ResMsg.PARAM_USERID_IS_REQUIRED.getMessage());
-		}
-		return null;
-	}
+//	private BasicRes checkParams(SelectReq req) {
+//		// 檢查員工編號和名字不能空白
+//		if (!StringUtils.hasText(req.getUserName())) {
+//			return new BasicRes(ResMsg.PARAM_USERNAME_IS_REQUIRED.getCode(), //
+//					ResMsg.PARAM_USERNAME_IS_REQUIRED.getMessage());
+//		}
+//		if (!StringUtils.hasText(req.getUserId())) {
+//			return new BasicRes(ResMsg.PARAM_USERID_IS_REQUIRED.getCode(), //
+//					ResMsg.PARAM_USERID_IS_REQUIRED.getMessage());
+//		}
+//		return null;
+//	}
 
 	@Override
 	public FeedbackRes feedback(FeedbackReq req) {

@@ -2,10 +2,14 @@ package com.example.vote.vo;
 
 import java.util.List;
 
+import javax.validation.constraints.NotBlank;
+
 public class SelectReq {
 
+	@NotBlank(message = "Param vote name error!!")
 	private String userName;
 
+	@NotBlank(message = "Param vote id error!!")
 	private String userId;
 
 	private String voteIds;
@@ -18,7 +22,7 @@ public class SelectReq {
 
 	
 
-	public SelectReq(String userName, String userId, String voteIds) {
+	public SelectReq(@NotBlank(message = "Param vote name error!!")String userName, @NotBlank(message = "Param vote name error!!")String userId, String voteIds) {
 	super();
 	this.userName = userName;
 	this.userId = userId;
