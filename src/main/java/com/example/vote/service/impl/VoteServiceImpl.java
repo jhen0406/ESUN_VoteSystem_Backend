@@ -32,10 +32,10 @@ public class VoteServiceImpl implements VoteService {
 						ResMsg.UPDATE_ID_NOT_FOUND.getMessage());
 			}
 		}
-		if (voteDao.existsByName(req.getName())) {
-			return new BasicRes(ResMsg.ITEM_EXISTS.getCode(), //
-					ResMsg.ITEM_EXISTS.getMessage());
-		}
+//		if (voteDao.existsById(req.getId())) {
+//			return new BasicRes(ResMsg.ITEM_EXISTS.getCode(), //
+//					ResMsg.ITEM_EXISTS.getMessage());
+//		}
 		voteDao.save(new Vote(req.getId(), req.getName(),req.getIntro()));
 		return new BasicRes(ResMsg.SUCCESS.getCode(), //
 				ResMsg.SUCCESS.getMessage());
